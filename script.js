@@ -6,23 +6,40 @@ function calculateSize() {
     const waist = parseFloat(document.getElementById("waist").value);
     const legLength = parseFloat(document.getElementById("legLength").value);
 
-    let size = "";
+    let shirtSize = "";
+    let pantsSize = "";
 
-    // Kiểm tra các điều kiện để tính size áo
+    // Tính size áo
     if (height >= 160 && height <= 167 && weight >= 50 && weight <= 60 && chest >= 92 && chest <= 100) {
-        size = "S";
+        shirtSize = "S";
     } else if (height >= 163 && height <= 170 && weight >= 55 && weight <= 65 && chest >= 96 && chest <= 104) {
-        size = "M";
+        shirtSize = "M";
     } else if (height >= 165 && height <= 172 && weight >= 65 && weight <= 75 && chest >= 100 && chest <= 108) {
-        size = "L";
+        shirtSize = "L";
     } else if (height >= 170 && height <= 180 && weight >= 75 && weight <= 90 && chest >= 104 && chest <= 112) {
-        size = "XL";
+        shirtSize = "XL";
     } else if (height >= 170 && height <= 190 && weight >= 85 && weight <= 100 && chest >= 106 && chest <= 114) {
-        size = "XLL";
+        shirtSize = "XLL";
     } else {
-        size = "Không tìm thấy size phù hợp";
+        shirtSize = "Không tìm thấy size áo phù hợp";
+    }
+
+    // Tính size quần
+    if (waist >= 70 && waist <= 75 && legLength >= 70 && legLength <= 75) {
+        pantsSize = "S";
+    } else if (waist >= 75 && waist <= 80 && legLength >= 75 && legLength <= 80) {
+        pantsSize = "M";
+    } else if (waist >= 80 && waist <= 85 && legLength >= 80 && legLength <= 85) {
+        pantsSize = "L";
+    } else if (waist >= 85 && waist <= 90 && legLength >= 85 && legLength <= 90) {
+        pantsSize = "XL";
+    } else if (waist >= 90 && waist <= 95 && legLength >= 90 && legLength <= 95) {
+        pantsSize = "XLL";
+    } else {
+        pantsSize = "Không tìm thấy size quần phù hợp";
     }
 
     // Cập nhật kết quả
-    document.getElementById("result").textContent = "Size áo của bạn là: " + size;
+    document.getElementById("shirtResult").textContent = "Size áo của bạn là: " + shirtSize;
+    document.getElementById("pantsResult").textContent = "Size quần của bạn là: " + pantsSize;
 }
